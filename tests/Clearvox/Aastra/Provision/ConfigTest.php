@@ -36,11 +36,21 @@ class ConfigTest extends PHPUnit_Framework_TestCase
             ->method('toArray')
             ->willReturn(['testing key' => 'testingvalue', 'another test' => 'anothervalue']);
 
+        $anotherMock = $this->getMock('\Clearvox\Aastra\Provision\ProvisionGroupInterface');
+        $anotherMock
+            ->expects($this->once())
+            ->method('toArray')
+            ->willReturn(['another key' => 'anothervaluekey', 'second another key' => 'secondvalue']);
+
+
         $this->config->addGroup($this->mock);
+        $this->config->addGroup($anotherMock);
 
         $expected  = '';
-        $expected .= 'testing key: testingvalue' . "\r\n";
-        $expected .= 'another test: anothervalue';
+        $expected .= 'testing key: testingvalue' . PHP_EOL;
+        $expected .= 'another test: anothervalue' . PHP_EOL;
+        $expected .= 'another key: anothervaluekey' . PHP_EOL;
+        $expected .= 'second another key: secondvalue' . PHP_EOL;
 
         $this->assertEquals($expected, $this->config->getContent());
 
