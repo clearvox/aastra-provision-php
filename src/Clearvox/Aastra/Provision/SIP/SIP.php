@@ -74,12 +74,21 @@ class SIP implements ProvisionGroupInterface
      */
     protected $registrationPeriod;
 
+    /**
+     * Set the Line number for this configuration, or if blank will prepare it
+     * for the Global Sip settings.
+     *
+     * @param int $lineNumber
+     */
     public function __construct($lineNumber = null)
     {
         $this->lineNumber = $lineNumber;
     }
 
     /**
+     * Get the line number this sip config is going to be loaded into. If this is null
+     * then the config is for Global Sip.
+     *
      * @return int|null
      */
     public function getLineNumber()
@@ -88,6 +97,8 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Set the line number to have this sip configuration loaded for.
+     *
      * @param int|null $lineNumber
      * @return SIP
      */
@@ -98,6 +109,8 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Name that displays on the idle screen.
+     *
      * @return string
      */
     public function getScreenName()
@@ -106,6 +119,12 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Name that displays on the idle screen.
+     *
+     * Valid values are up to 20 alphanumeric characters.
+     *
+     * @web Screen Name
+     *
      * @param string $screenName
      * @return SIP
      */
@@ -124,6 +143,13 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * User name used in the name field of the SIP URI for the IP phone and for
+     * registering the phone at the registrar.
+     *
+     * Valid values are up to 20 alphanumeric characters.
+     *
+     * @web Phone Number
+     *
      * @param string $username
      * @return SIP
      */
@@ -142,6 +168,14 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Name used in the display name field of the "From SIP" header field.
+     * Some IP PBX systems use this as the caller’s ID, and some may overwrite
+     * this with the string that is set at the PBX system.
+     *
+     * Valid values are up to 20 alphanumeric characters.
+     *
+     * @web Caller ID
+     *
      * @param string $displayName
      * @return SIP
      */
@@ -178,6 +212,13 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Authorization name used in the username field of the Authorization header
+     * field of the SIP REGISTER request.
+     *
+     * Valid values are up to 20 alphanumeric characters.
+     *
+     * @web Authentication Name
+     *
      * @param string $authName
      * @return SIP
      */
@@ -196,6 +237,14 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * Password used to register the IP phone with the SIP proxy.
+     *
+     * Valid values are up to 20 alphanumeric characters.
+     *
+     * Passwords are encrypted and display as asterisks when entering.
+     *
+     * @web Password
+     *
      * @param string $password
      * @return SIP
      */
@@ -214,6 +263,14 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * The mode-type that you assign to the IP phone.
+     *
+     * Valid values are Generic (0), BroadSoft SCA (1), Reserved for (2), or BLA (3).
+     *
+     * Default is Generic (0).
+     *
+     * @web Line Mode
+     *
      * @param int $mode
      * @return SIP
      */
@@ -232,6 +289,12 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * IP address of the SIP proxy server.
+     *
+     * Up to 64 alphanumeric characters.
+     *
+     * @web Proxy Server
+     *
      * @param string $proxyIp
      * @return SIP
      */
@@ -250,6 +313,10 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * SIP proxy server’s port number. Default is 0.
+     *
+     * @web Proxy Port
+     *
      * @param int $proxyPort
      * @return SIP
      */
@@ -268,6 +335,15 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * IP address of the SIP registrar. Up to 64 alphanumeric characters. Enables or disables
+     * the phone to be registered with the Registrar. When Register is disabled globally,
+     * the phone is still active and you can dial using username and IP address of the phone.
+     *
+     * A message "No Service" displays on the idle screen and the LED is steady ON.
+     * If Register is disabled for a single line, no messages display and LEDs are OFF.
+     *
+     * @web Registrar Server
+     *
      * @param string $registrarIp
      * @return SIP
      */
@@ -286,6 +362,10 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * SIP registrar’s port number. Default is 0.
+     *
+     * @web Registrar Port
+     *
      * @param int $registrarPort
      * @return SIP
      */
@@ -304,6 +384,10 @@ class SIP implements ProvisionGroupInterface
     }
 
     /**
+     * The requested registration period, in seconds, from the registrar.
+     *
+     * @web Registration Period
+     *
      * @param int $registrationPeriod
      * @return SIP
      */
