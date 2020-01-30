@@ -349,7 +349,7 @@ class SIP implements ProvisionGroupInterface
      *
      * Up to 64 alphanumeric characters.
      *
-     * @web Proxy Server
+     * @web Outbound Proxy Server
      *
      * @param string $outboundProxyIp
      * @return SIP
@@ -371,7 +371,7 @@ class SIP implements ProvisionGroupInterface
     /**
      * SIP proxy server’s port number. Default is 0.
      *
-     * @web Proxy Port
+     * @web Outbound Proxy Port
      *
      * @param int $outboundProxyPort
      * @return SIP
