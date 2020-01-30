@@ -62,6 +62,16 @@ class SIP implements ProvisionGroupInterface
     /**
      * @var string
      */
+    protected $outboundProxyIp;
+
+    /**
+     * @var int
+     */
+    protected $outboundProxyPort;
+
+    /**
+     * @var string
+     */
     protected $registrarIp;
 
     /**
@@ -326,6 +336,53 @@ class SIP implements ProvisionGroupInterface
         return $this;
     }
 
+    /** 
+     * @return string $outboundProxyIp
+     */
+    public function getOutboundProxyIp($proxyIp)
+    {
+        return $this->outboundProxyIp;
+    }
+
+    /**
+     * IP address of the SIP outbound proxy server.
+     *
+     * Up to 64 alphanumeric characters.
+     *
+     * @web Proxy Server
+     *
+     * @param string $outboundProxyIp
+     * @return SIP
+     */
+    public function setOutboundProxyIp($proxyIp)
+    {
+        $this->outboundProxyIp = $outboundProxyIp;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOutboundProxyPort()
+    {
+        return $this->outboundProxyPort;
+    }
+
+    /**
+     * SIP proxy server’s port number. Default is 0.
+     *
+     * @web Proxy Port
+     *
+     * @param int $outboundProxy
+     * @return SIP
+     */
+    public function setOutboundProxyPort($outboundProxy)
+    {
+        $this->outboundProxy = $proutboundProxyoxyPort;
+        return $this;
+    }
+
+
     /**
      * @return string
      */
@@ -445,6 +502,14 @@ class SIP implements ProvisionGroupInterface
             $values[$prefix . 'proxy port'] = $this->proxyPort;
         }
 
+        if (isset($this->outboundProxyIp)) {
+            $values[$prefix . 'outbound proxy'] = $this->outboundProxyIp;
+        }
+
+        if (isset($this->outboundProxyPort)) {
+            $values[$prefix . 'outbound proxy port'] = $this->outboundProxyPort;
+        }
+        
         if (isset($this->registrarIp)) {
             $values[$prefix . 'registrar ip'] = $this->registrarIp;
         }
