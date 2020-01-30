@@ -336,10 +336,10 @@ class SIP implements ProvisionGroupInterface
         return $this;
     }
 
-    /** 
+    /**
      * @return string $outboundProxyIp
      */
-    public function getOutboundProxyIp($proxyIp)
+    public function getOutboundProxyIp()
     {
         return $this->outboundProxyIp;
     }
@@ -354,7 +354,7 @@ class SIP implements ProvisionGroupInterface
      * @param string $outboundProxyIp
      * @return SIP
      */
-    public function setOutboundProxyIp($proxyIp)
+    public function setOutboundProxyIp($outboundProxyIp)
     {
         $this->outboundProxyIp = $outboundProxyIp;
         return $this;
@@ -373,12 +373,12 @@ class SIP implements ProvisionGroupInterface
      *
      * @web Proxy Port
      *
-     * @param int $outboundProxy
+     * @param int $outboundProxyPort
      * @return SIP
      */
-    public function setOutboundProxyPort($outboundProxy)
+    public function setOutboundProxyPort($outboundProxyPort)
     {
-        $this->outboundProxy = $proutboundProxyoxyPort;
+        $this->outboundProxyPort = $outboundProxyPort;
         return $this;
     }
 
@@ -509,7 +509,7 @@ class SIP implements ProvisionGroupInterface
         if (isset($this->outboundProxyPort)) {
             $values[$prefix . 'outbound proxy port'] = $this->outboundProxyPort;
         }
-        
+
         if (isset($this->registrarIp)) {
             $values[$prefix . 'registrar ip'] = $this->registrarIp;
         }
