@@ -1,5 +1,5 @@
 # Aastra Provision PHP
-**this was deprecated on core-2.6.0** See [here](https://github.com/clearvox/core/pull/2569)
+(!) **this was deprecated on core-2.6.0** See [here](https://github.com/clearvox/core/pull/2569)
 
 [![Build Status](https://travis-ci.org/clearvox/aastra-provision-php.svg?branch=master)](https://travis-ci.org/clearvox/aastra-provision-php)
 
