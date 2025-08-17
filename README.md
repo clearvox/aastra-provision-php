@@ -1,4 +1,6 @@
 # Aastra Provision PHP
+**this was deprecated on core-2.6.0** See [here](https://github.com/clearvox/core/pull/2569)
+
 [![Build Status](https://travis-ci.org/clearvox/aastra-provision-php.svg?branch=master)](https://travis-ci.org/clearvox/aastra-provision-php)
 
 Make Aastra provision configurations simply with this clean OOP, tested library.
